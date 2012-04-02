@@ -1,0 +1,11 @@
+
+alias
+boost-headers
+	: # sources
+	: # requirements
+	: # default-build
+	: # usage-requirements
+		<include>$(boost-location)
+	;
+
+run gen.cpp boost-headers : -od ../../../boost/la/custom ;

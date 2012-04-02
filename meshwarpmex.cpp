@@ -17,9 +17,16 @@
 // complie on osx with:
 // mex -I"/Developer/SDKs/MacOSX10.6.sdk/usr/X11/include/" -I"/Users/alex/Source/boost_1_42_0/" -L"/Developer/SDKs/MacOSX10.6.sdk/usr/X11/lib/" -lgl -lglut -lglu meshwarpmex.cpp
 
+// zhopy syki blyadi ...
+// PK Modficiation:
+// la is deprecated, now they have "qvm" !? 
+// svn co http://svn.boost.org/svn/boost/sandbox/la -r 59504
+// mex -I"/u4/home/pkarasev3/source/boost-qvm/la/" 
+// -I/usr/include/GL/  -L/usr/lib/ -lGL -lglut -lGLU  meshwarpmex.cpp
+
 #include "mex.h"
 #define GL_GLEXT_PROTOTYPES
-#include <gl/glut.h>
+#include <glut.h>
 #include <boost/la/all.hpp>
 #include <vector>
 

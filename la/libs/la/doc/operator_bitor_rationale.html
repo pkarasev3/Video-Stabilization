@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+	<title>operator| rationale</title>
+	<link href='reno.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+<div class="body-0">
+<div class="body-1">
+<div class="body-2">
+<div>
+<div id="reverge_logo">
+<a href="http://www.revergestudios.com"><img style="border:0" src="reverge.png" alt="Reverge"/></a>
+</div>
+<h1><a href="index.html">Boost LA</a></h1>
+</div>
+<!-- Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>Operator| Rationale</h3>
+</div>
+<p>Boost LA defines many operator| overloads that return various <span class="RenoLink"><a href="view_proxy.html">view proxy</a></span> references to vector and matrix objects. For example, to work with the transposed view of a matrix m, you could simply use m|<span class="RenoLink"><a href="transpose.html">transpose</a></span>.</p>
+<p>The convenience of operator overloading for this purpose, and the reasons for selecting operator| in particular (and its drawbacks) are explained below.</p>
+<h3>The need: easy composition</h3>
+<p>Boost LA implements <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span> very efficiently. The effect of using a <span class="RenoLink"><a href="view_proxy.html">view proxy</a></span> is that it chains up an additional level of <span class="RenoLink"><a href="matrix_traits.html">matrix_traits</a></span>/<span class="RenoLink"><a href="vector_traits.html">vector_traits</a></span> access functions.</p>
+<p>While it is possible that the compiler might not inline this additional function call, even without using <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span> reliable inlining of simple access functions is already critical for the performance of Boost LA (for targeted control, all such functions invoke the <span class="RenoLink"><a href="BOOST_LA_INLINE_CRITICAL.html">BOOST_LA_INLINE_CRITICAL</a></span> <span class="RenoLink"><a href="configuration_macro.html">configuration macro</a></span>.)</p>
+<h3>'Pipe', not 'bitwise-OR'</h3>
+<p>Assuming inlining works, <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span> should have negligible or no overhead because they do not create temporary objects. This makes it practical to use composition to get accumulative effects. For example:</p>
+<pre>//Store the 3D vector v transformed by the matrix m1
+//into column 1 of m2, swapping its X and Y coordinates.
+m2|<span class="RenoLink"><a href="col.html">col</a></span>&lt;1&gt;|<span class="RenoLink"><a href="swizzling_support.html">YXZ</a></span> = m1 <span class="RenoLink"><a href="operator_times_matrix_vector_.html">*</a></span> v;</pre>
+<h3>Downsides</h3>
+<p>Making a small change to the example above, we get:</p>
+<pre>m2|<span class="RenoLink"><a href="col.html">col</a></span>&lt;1&gt; = m1 <span class="RenoLink"><a href="operator_times_matrix_vector_.html">*</a></span> v|<span class="RenoLink"><a href="swizzling_support.html">YXZ</a></span>;</pre>
+<p>This expression swaps the X and Y coordinates not of v, but of the result from transforming v by m1 (which of course is also a 3D vector.)</p>
+<p>So the downside of operator| is that its precedence is lower than the precedence of most other operators and this often requires parentheses.</p>
+<h3>Alternatives</h3>
+<p>We could use regular function call composition instead of operator overloading, which would make our last example completely unambiguous:</p>
+<pre>col&lt;1&gt;(m2) = m1 <span class="RenoLink"><a href="operator_times_matrix_vector_.html">*</a></span> YXZ(v);</pre>
+<p>However additional levels of composition become uglier:</p>
+<pre>YXZ(col&lt;1&gt;(m2)) = m1 <span class="RenoLink"><a href="operator_times_matrix_vector_.html">*</a></span> v;</pre>
+<p>Another possibility would be to use operator/ instead, which has much better precedence for this purpose, but this choice has no semantic justification whatsoever.</p>
+</div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
+See also: <span class="RenoPageList"><a href="index.html">Boost LA</a></span>
+</div>
+<!-- Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div id="footer">
+<p>
+<a class="logo" href="http://jigsaw.w3.org/css-validator/check/referer"><img class="logo_pic" src="valid-css.png" alt="Valid CSS" height="31" width="88"/></a>
+<a class="logo" href="http://validator.w3.org/check?uri=referer"><img class="logo_pic" src="valid-xhtml.png" alt="Valid XHTML 1.0" height="31" width="88"/></a>
+<small>Copyright (c) 2008-2009 by Emil Dotchevski and Reverge Studios, Inc.<br/>
+Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

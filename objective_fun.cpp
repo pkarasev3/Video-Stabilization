@@ -17,6 +17,9 @@
 // mex -g -I"/Users/alex/Source/boost_1_42_0/" objective_fun.cpp
 // mex -I"/Users/alex/Source/boost_1_42_0/" objective_fun.cpp
 
+// PK Modficiation:
+// mex -I"/u4/home/pkarasev3/source/boost-qvm/la/"  objective_fun.cpp
+
 #include "mex.h"
 #include <boost/la/all.hpp>
 #include <vector>

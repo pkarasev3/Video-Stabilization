@@ -1,0 +1,131 @@
+# Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc.
+
+# Distributed under the Boost Software License, Version 1.0. (See accompanying
+# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+project
+	: requirements
+		<include>$(boost-location)
+		<include>../../..
+	;
+
+rule
+headers-compile-test ( headers * : requirements * : target-tag ? )
+	{
+	local test-names = ;
+	for local header in $(headers)
+		{
+		local native-path = [ path.native $(header) ] ;
+		local target = hdr$(target-tag)-$(header:D=) ;
+		compile header-test.cpp : $(requirements) <define>REVERGE_HEADER=\\\"$(native-path)\\\" <dependency>$(header) : $(target) ;
+		test-names += $(target) ;
+		}
+	alias hdrtest$(target-tag) : $(test-names) ;
+	}
+
+headers-compile-test [ glob ../../../boost/la/*.hpp ]
+	: # requirements
+		<include>$(boost-location)
+	: # target-tag
+		la
+	;
+
+headers-compile-test [ glob ../../../boost/la/custom/*.hpp ]
+	: # requirements
+		<include>$(boost-location)
+	: # target-tag
+		custom
+	;
+
+run vector_access_test.cpp ;
+compile-fail vector_access_fail1.cpp ;
+compile-fail vector_access_fail2.cpp ;
+compile-fail vector_access_fail3.cpp ;
+compile-fail vector_access_fail4.cpp ;
+
+run matrix_access_test.cpp ;
+compile-fail matrix_access_fail1.cpp ;
+compile-fail matrix_access_fail2.cpp ;
+compile-fail matrix_access_fail3.cpp ;
+compile-fail matrix_access_fail4.cpp ;
+
+run vector_assign_test.cpp ;
+run vector_cross_test.cpp ;
+run vector_div_eq_scalar_test.cpp ;
+run vector_div_scalar_test.cpp ;
+run vector_dot_test.cpp ;
+run vector_eq_vector_test.cpp ;
+run vector_magnitude_test.cpp ;
+run vector_magnitude2_test.cpp ;
+run vector_minus_test.cpp ;
+run vector_minus_eq_vector_test.cpp ;
+run vector_minus_vector_test.cpp ;
+run vector_mul_eq_scalar_test.cpp ;
+run vector_mul_scalar_test.cpp ;
+run vector_mul_matrix_test.cpp ;
+run vector_plus_eq_vector_test.cpp ;
+run vector_plus_vector_test.cpp ;
+run vector_scalar_cast_test.cpp ;
+
+run matrix_assign_test.cpp ;
+run matrix_determinant_test.cpp ;
+run matrix_div_eq_scalar_test.cpp ;
+run matrix_div_scalar_test.cpp ;
+run matrix_eq_matrix_test.cpp ;
+run matrix_minus_test.cpp ;
+run matrix_minus_eq_matrix_test.cpp ;
+run matrix_minus_matrix_test.cpp ;
+run matrix_mul_eq_matrix_test.cpp ;
+run matrix_mul_eq_scalar_test.cpp ;
+run matrix_mul_matrix_test.cpp ;
+run matrix_mul_scalar_test.cpp ;
+run matrix_mul_vector_test.cpp ;
+run matrix_inverse_test.cpp ;
+run matrix_plus_eq_matrix_test.cpp ;
+run matrix_plus_matrix_test.cpp ;
+run matrix_scalar_cast_test.cpp ;
+
+run make_test.cpp ;
+
+run rotx_matrix_test.cpp ;
+run roty_matrix_test.cpp ;
+run rotz_matrix_test.cpp ;
+
+run zero_vector_test.cpp ;
+run zero_matrix_test.cpp ;
+run identity_matrix_test.cpp ;
+
+run col_test.cpp ;
+run col_matrix_test.cpp ;
+run delc_test.cpp ;
+run delr_test.cpp ;
+run delrc_test.cpp ;
+run diag_test.cpp ;
+run diag_matrix_test.cpp ;
+run row_test.cpp ;
+run row_matrix_test.cpp ;
+run transpose_test.cpp ;
+run trans_matrix_test.cpp ;
+
+compile-fail swizzle2_fail2.cpp ;
+compile-fail swizzle2_fail3.cpp ;
+compile-fail swizzle2_fail4.cpp ;
+run swizzle2_test.cpp ;
+compile-fail swizzle3_fail2.cpp ;
+compile-fail swizzle3_fail3.cpp ;
+compile-fail swizzle3_fail4.cpp ;
+run swizzle3_test.cpp ;
+compile-fail swizzle4_fail2.cpp ;
+compile-fail swizzle4_fail3.cpp ;
+compile-fail swizzle4_fail4.cpp ;
+run swizzle4_test.cpp ;
+
+compile deduce_scalar_test.cpp ;
+compile-fail deduce_scalar_fail1.cpp ;
+compile-fail deduce_scalar_fail2.cpp ;
+compile-fail deduce_scalar_fail3.cpp ;
+
+compile deduce_matrix_test.cpp ;
+compile deduce_vector_test.cpp ;
+
+run interop_test.cpp ;

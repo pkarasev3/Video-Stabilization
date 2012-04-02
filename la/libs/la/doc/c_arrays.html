@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+	<title>c arrays</title>
+	<link href='reno.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+<div class="body-0">
+<div class="body-1">
+<div class="body-2">
+<div>
+<div id="reverge_logo">
+<a href="http://www.revergestudios.com"><img style="border:0" src="reverge.png" alt="Reverge"/></a>
+</div>
+<h1><a href="index.html">Boost LA</a></h1>
+</div>
+<!-- Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>C Arrays</h3>
+</div>
+<p>In <span class="RenoLink"><a href="boost_la_array_matrix_traits_hpp.html">boost/la/array_matrix_traits.hpp</a></span> and <span class="RenoLink"><a href="boost_la_array_vector_traits_hpp.html">boost/la/array_vector_traits.hpp</a></span> Boost LA defines appropriate <span class="RenoLink"><a href="vector_traits.html">vector_traits</a></span> and <span class="RenoLink"><a href="matrix_traits.html">matrix_traits</a></span> specializations that allow Boost LA functions to operate directly on plain old C arrays:</p>
+<pre>float v[3] = {0,0,7};
+float3 vrot = <span class="RenoLink"><a href="rotx_matrix.html">rotx_matrix</a></span>&lt;3&gt;(3.14159f) <span class="RenoLink"><a href="operator_times_matrix_vector_.html">*</a></span> v;</pre>
+<p>Naturally, operator overloads cannot kick in if all elements of an expression are of built-in types. The following is illegal:</p>
+<pre>float v[3] = {0,0,7};
+v *= 42;</pre>
+<p>The <span class="RenoLink"><a href="vref.html">vref</a></span> and <span class="RenoLink"><a href="mref.html">mref</a></span> function templates can be used to work around this issue:</p>
+<pre>float v[3] = {0,0,7};
+<span class="RenoLink"><a href="vref.html">vref</a></span>(v) <span class="RenoLink"><a href="operator_mul_eq_vector_scalar_.html">*=</a></span> 42;</pre>
+</div><div class="RenoIncludeDIV"><div class="RenoHR"><hr/></div>
+<p><b>Tutorial:</b> <span class="RenoLink"><a href="vector_and_matrix_types.html">Vector and Matrix Types</a></span> | <span class="RenoLink">C Arrays</span> | <span class="RenoLink"><a href="Views.html">Views</a></span> | <span class="RenoLink"><a href="Swizzling.html">Swizzling</a></span> | <span class="RenoLink"><a href="Interoperability.html">Interoperability</a></span> | Back to <span class="RenoLink"><a href="index.html">Boost LA</a></span></p>
+</div><!-- Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div id="footer">
+<p>
+<a class="logo" href="http://jigsaw.w3.org/css-validator/check/referer"><img class="logo_pic" src="valid-css.png" alt="Valid CSS" height="31" width="88"/></a>
+<a class="logo" href="http://validator.w3.org/check?uri=referer"><img class="logo_pic" src="valid-xhtml.png" alt="Valid XHTML 1.0" height="31" width="88"/></a>
+<small>Copyright (c) 2008-2009 by Emil Dotchevski and Reverge Studios, Inc.<br/>
+Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

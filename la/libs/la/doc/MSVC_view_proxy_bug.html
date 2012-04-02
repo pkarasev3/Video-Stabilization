@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+	<title>MSVC view proxy bug</title>
+	<link href='reno.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+<div class="body-0">
+<div class="body-1">
+<div class="body-2">
+<div>
+<div id="reverge_logo">
+<a href="http://www.revergestudios.com"><img style="border:0" src="reverge.png" alt="Reverge"/></a>
+</div>
+<h1><a href="index.html">Boost LA</a></h1>
+</div>
+<!-- Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>MSVC View Proxy Bug</h3>
+</div>
+<p>Microsoft Visual C++ prior to and including version 9.0 erroneously issues compile errors in <i>template</i> <span class="RenoLink"><a href="view_proxy.html">view proxy</a></span> operator| overloads (non-template operator| overloads are OK.) An alternative syntax is supported to work around this issue. For example, instead of m|<span class="RenoLink"><a href="col.html">col</a></span>&lt;C&gt; you can use m|<span class="RenoLink"><a href="col.html">col</a></span>&lt;C&gt;(). The alternative syntax is valid on all compilers, not only on MSVC.</p>
+<p>Note however that this issue affects only template <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>. Here is a complete list the affected <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>: <span class="RenoLink"><a href="col.html">col</a></span>, <span class="RenoLink"><a href="row.html">row</a></span>, <span class="RenoLink"><a href="delc.html">delc</a></span>, <span class="RenoLink"><a href="delr.html">delr</a></span>, <span class="RenoLink"><a href="delrc.html">delrc</a></span>, <span class="RenoLink"><a href="sw.html">sw</a></span>, <span class="RenoLink"><a href="matrix_A.html">matrix/A</a></span>, <span class="RenoLink"><a href="vector_A.html">vector/A</a></span>.</p>
+</div><div class="RenoAutoDIV"></div>
+<!-- Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div id="footer">
+<p>
+<a class="logo" href="http://jigsaw.w3.org/css-validator/check/referer"><img class="logo_pic" src="valid-css.png" alt="Valid CSS" height="31" width="88"/></a>
+<a class="logo" href="http://validator.w3.org/check?uri=referer"><img class="logo_pic" src="valid-xhtml.png" alt="Valid XHTML 1.0" height="31" width="88"/></a>
+<small>Copyright (c) 2008-2009 by Emil Dotchevski and Reverge Studios, Inc.<br/>
+Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

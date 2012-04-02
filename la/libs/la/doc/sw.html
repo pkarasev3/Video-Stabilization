@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+	<title>sw</title>
+	<link href='reno.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+<div class="body-0">
+<div class="body-1">
+<div class="body-2">
+<div>
+<div id="reverge_logo">
+<a href="http://www.revergestudios.com"><img style="border:0" src="reverge.png" alt="Reverge"/></a>
+</div>
+<h1><a href="index.html">Boost LA</a></h1>
+</div>
+<!-- Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>sw</h3>
+</div>
+<div class="RenoIncludeDIV"><div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_la_sw_hpp.html">boost/la/sw.hpp</a></span>&gt;</p>
+<pre>namespace
+boost
+    {
+    namespace
+    la
+        {
+<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">struct _x_;
+        struct _y_;
+        struct _z_;
+        struct _w_;
+        struct _0_;
+        struct _1_;
+        
+        template &lt;int I1,int I2,...int IN&gt;
+        -unspecified-return-type- <span class="RenoLink">sw</span>();
+        
+        template &lt;class A1,class A2,...class AN&gt;
+        -unspecified-return-type- <span class="RenoLink">sw</span>();</span></span>
+        }
+    }</pre>
+</div></div><p>The expression v|<span class="RenoLink">sw</span>&lt;I1,I2...&gt;, where I1, I2... are compile-time integer constants, returns a <span class="RenoLink"><a href="view_proxy.html">view proxy</a></span> that accesses the vector v as if the view's element 0 is the I1-th element of v, the view's element 1 is the I2-th element of v, and so on.</p>
+<p>The expression v|<span class="RenoLink">sw</span>&lt;A1,A2,...&gt;, where A1, A2... are from the set [_x_,_y_,_z_,_w_,_0_,_1_], is similar except that v's elements are specified by name, such that _x_/_y_/_z_/_w_ refer to v's element with index 0/1/2/3. If _0_/_1_ is specified at some position, the value <span class="RenoLink"><a href="scalar_traits.html">scalar_traits</a></span>&lt;&gt;::zero()/<span class="RenoLink"><a href="scalar_traits.html">scalar_traits</a></span>&lt;&gt;::one() (depending on v's <span class="RenoLink"><a href="vector_traits_Vector_scalar_type.html">scalar_type</a></span>) is subsituted.</p>
+</div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
+See also: <span class="RenoPageList"><a href="boost_la_sw_hpp.html">boost/la/sw.hpp</a>&nbsp;| <a href="MSVC_view_proxy_bug.html">MSVC View Proxy Bug</a>&nbsp;| <a href="swizzling_support.html">Swizzling Support</a></span>
+</div>
+<!-- Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div id="footer">
+<p>
+<a class="logo" href="http://jigsaw.w3.org/css-validator/check/referer"><img class="logo_pic" src="valid-css.png" alt="Valid CSS" height="31" width="88"/></a>
+<a class="logo" href="http://validator.w3.org/check?uri=referer"><img class="logo_pic" src="valid-xhtml.png" alt="Valid XHTML 1.0" height="31" width="88"/></a>
+<small>Copyright (c) 2008-2009 by Emil Dotchevski and Reverge Studios, Inc.<br/>
+Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

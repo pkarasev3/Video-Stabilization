@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+	<title>swizzling support</title>
+	<link href='reno.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+<div class="body-0">
+<div class="body-1">
+<div class="body-2">
+<div>
+<div id="reverge_logo">
+<a href="http://www.revergestudios.com"><img style="border:0" src="reverge.png" alt="Reverge"/></a>
+</div>
+<h1><a href="index.html">Boost LA</a></h1>
+</div>
+<!-- Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>Swizzling Support</h3>
+</div>
+<p>For vectors, besides <span class="RenoLink"><a href="vector_A.html">simple element access</a></span>, Boost LA supports arbitrary element swizzling for 2D, 3D and 4D vectors.</p>
+<div class="RenoIncludeDIV"><div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_la_swizzle_hpp.html">boost/la/swizzle.hpp</a></span>&gt;</p>
+<pre>namespace
+boost
+    {
+    namespace
+    la
+        {
+<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">//2D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>:
+        -unspecified-return-type- XX();
+        -unspecified-return-type- XY();
+        -unspecified-return-type- XZ();
+        -unspecified-return-type- XW();
+        -unspecified-return-type- X0();
+        -unspecified-return-type- X1();
+        -unspecified-return-type- YX();
+        -unspecified-return-type- YY();
+        -unspecified-return-type- YZ();
+        -unspecified-return-type- YW();
+        -unspecified-return-type- Y0();
+        -unspecified-return-type- Y1();
+        -unspecified-return-type- ZX();
+        -unspecified-return-type- ZY();
+        -unspecified-return-type- ZZ();
+        -unspecified-return-type- ZW();
+        -unspecified-return-type- Z0();
+        -unspecified-return-type- Z1();
+        -unspecified-return-type- WX();
+        -unspecified-return-type- WY();
+        -unspecified-return-type- WZ();
+        -unspecified-return-type- WW();
+        -unspecified-return-type- W0();
+        -unspecified-return-type- W1();
+        
+        //3D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>:
+        -unspecified-return-type- XXX();
+        ...
+        -unspecified-return-type- XXW();
+        -unspecified-return-type- XX0();
+        -unspecified-return-type- XX1();
+        -unspecified-return-type- XYX();
+        ...
+        -unspecified-return-type- XY1();
+        ...
+        -unspecified-return-type- WW1();
+        
+        //4D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>:
+        -unspecified-return-type- XXXX();
+        ...
+        -unspecified-return-type- XXXW();
+        -unspecified-return-type- XXX0();
+        -unspecified-return-type- XXX1();
+        -unspecified-return-type- XXYX();
+        ...
+        -unspecified-return-type- XXY1();
+        ...
+        -unspecified-return-type- WWW1();</span></span>
+        }
+    }</pre>
+</div></div><p>These functions can be used to create 2D, 3D, and 4D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span> to any vector object.</p>
+<p>The expression v|XX is equivalent to v|<span class="RenoLink"><a href="sw.html">sw</a></span>&lt;_x_,_x_&gt;, v|XY is equivalent to v|<span class="RenoLink"><a href="sw.html">sw</a></span>&lt;_x_,_y_&gt; and so on.</p>
+<p>Similarly, v|XXX is equivalent to v|<span class="RenoLink"><a href="sw.html">sw</a></span>&lt;_x_,_x_,_x_&gt;, v|XXY is equivalent to v|<span class="RenoLink"><a href="sw.html">sw</a></span>&lt;_x_,_x_,_y_&gt;, and so on.</p>
+<p>Finally, v|XXXX is equivalent to v|<span class="RenoLink"><a href="sw.html">sw</a></span>&lt;_x_,_x_,_x_,_x_&gt;, v|XXXY is equivalent to v|<span class="RenoLink"><a href="sw.html">sw</a></span>&lt;_x_,_x_,_x_,_y_&gt;, and so on.</p>
+</div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
+See also: <span class="RenoPageList"><a href="boost_la_swizzle_hpp.html">boost/la/swizzle.hpp</a></span>
+</div>
+<!-- Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div id="footer">
+<p>
+<a class="logo" href="http://jigsaw.w3.org/css-validator/check/referer"><img class="logo_pic" src="valid-css.png" alt="Valid CSS" height="31" width="88"/></a>
+<a class="logo" href="http://validator.w3.org/check?uri=referer"><img class="logo_pic" src="valid-xhtml.png" alt="Valid XHTML 1.0" height="31" width="88"/></a>
+<small>Copyright (c) 2008-2009 by Emil Dotchevski and Reverge Studios, Inc.<br/>
+Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
